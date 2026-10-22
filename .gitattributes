@@ -1,0 +1,9 @@
+# Store and check out every text file with LF line endings on every OS, overriding a
+# machine's core.autocrlf setting. Firefox's source uses LF, and our scripts and CI run on
+# Linux, so Windows-style CRLF copies only cause trouble.
+* text=auto eol=lf
+
+# Patch files must reach the patch tool exactly as exported, byte for byte: never convert
+# their line endings. (A few upstream files use CRLF on purpose; their patches must keep it.)
+*.patch -text
+*.diff -text

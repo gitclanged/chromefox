@@ -29,6 +29,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **Git / GitHub** | Git records the history of files; GitHub hosts the repository and runs CI and pull requests. |
 | **Git ignore list (`.gitignore`)** | A file listing paths Git must never track. Ours keeps Firefox's source, build output, installers and secrets out of the repository. |
 | **Hook (Claude Code)** | A script Claude Code runs automatically at certain moments (session start, before a command, when finishing). Used to enforce rules. |
+| **Line endings (LF / CRLF)** | The invisible character(s) that end each line of text. Linux and macOS use LF; Windows traditionally uses CRLF. We store everything as LF, set in `.gitattributes` (Git's per-file-type rules), because a patch whose line endings were changed can fail to apply. |
 | **LTO** | Link-Time Optimization: a compiler technique that optimizes across the whole program. Mozilla's release builds use it. |
 | **mach** | Mozilla's build command: `./mach build`, `./mach run`, `./mach package`, `./mach test`. |
 | **MAR** | Mozilla ARchive: the signed update file format Firefox's updater installs. |
