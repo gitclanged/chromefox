@@ -5,7 +5,7 @@
 | Owner / architect | You | No | Decide what to build, answer open questions, approve and merge |
 | Engineer | Claude Code | Yes — the only one | Plan, implement, verify, commit, open PRs, explain |
 | In-session reviewer | Claude Code `reviewer` subagent | No | Fresh-context review of every diff before a PR |
-| Auditor / historian | Gemini 4 Argon | No | Whole-repo audits, upstream impact reports, design second opinions |
+| Auditor / historian | Gemini 4 Argon | No | Whole-repo audits, upstream impact reports, design second opinions, better-option proposals |
 
 **Why one writer:** two agents editing the same files produce conflicting styles and changes
 nobody fully owns. Gemini's value here is *independence*: a different model, reading the
@@ -84,7 +84,11 @@ Produce a report with:
    - STATUS.md "Next up" that no longer matches ROADMAP.md
    - performance claims without data in perf/results/
 3. A list of things you could NOT verify from the files provided.
-Do not propose rewrites; propose minimal changes.
+4. Better options (AGENTS.md section 9): up to three ideas that would make the project
+   simpler, cheaper to maintain, faster or safer, including reuse of something Firefox or
+   the OS already provides. For each: what it replaces, why it is better, the risks, and
+   what would need verifying. Keep these separate from the findings.
+For findings, propose minimal changes, not rewrites.
 ```
 
 ### Prompt 2 — upstream impact report (before each ESR update)

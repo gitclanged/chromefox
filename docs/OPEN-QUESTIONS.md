@@ -17,6 +17,15 @@ update or add an ADR.
 | 9 | **Public or private repository** | Private until Phase 6 | MPL requires publishing source when you distribute binaries | Before first public binary |
 | 10 | **Budget ceiling per month** (AI usage, machines, certificates) | None set | Prevents surprise costs | P0-02 |
 
+## Proposals (better options)
+
+Ideas from Claude, Gemini or you that would change the plan (AGENTS.md section 9). The current
+plan stands until you decide. Status is `open`, `accepted → <task or ADR>`, or
+`rejected (<why>)`.
+
+| ID | Proposal | Instead of | Why it might be better | Risks / not yet verified | Raised | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+
 ## Decided
 
 _Move rows here with the date and the decision._

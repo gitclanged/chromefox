@@ -25,4 +25,6 @@ Rules for your output:
   `blocker`, `should-fix`, or `consider`.
 - Separate facts you verified in the provided files from guesses.
 - Write so the non-programmer owner can follow the summary at the top.
-- Do not propose large rewrites; propose the smallest change that fixes each finding.
+- For each finding, propose the smallest change that fixes it. Bigger ideas are welcome
+  (AGENTS.md section 9) but go in a separate "Better options" section, never mixed into
+  findings.
