@@ -1,9 +1,11 @@
 # Store and check out every text file with LF line endings on every OS, overriding a
-# machine's core.autocrlf setting. Firefox's source uses LF, and our scripts and CI run on
-# Linux, so Windows-style CRLF copies only cause trouble.
+# machine's core.autocrlf setting. Firefox's source uses LF and CI runs on Linux, so
+# Windows-style CRLF copies only cause trouble.
 * text=auto eol=lf
 
-# Patch files must reach the patch tool exactly as exported, byte for byte: never convert
-# their line endings. (A few upstream files use CRLF on purpose; their patches must keep it.)
+# Patch files are kept byte for byte as exported: Git never converts their line endings,
+# because a converted patch no longer matches the upstream lines it changes (some upstream
+# files may use CRLF on purpose). This also means Git does not catch a patch exported with
+# the wrong line endings; creating patches correctly is the new-patch procedure's job.
 *.patch -text
 *.diff -text

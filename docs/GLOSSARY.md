@@ -27,9 +27,9 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **Frontend** | The browser's interface code (JavaScript, HTML, CSS). |
 | **Gecko** | Firefox's engine: turns HTML/CSS/JavaScript into what you see. |
 | **Git / GitHub** | Git records the history of files; GitHub hosts the repository and runs CI and pull requests. |
-| **Git ignore list (`.gitignore`)** | A file listing paths Git must never track. Ours keeps Firefox's source, build output, installers and secrets out of the repository. |
+| **Git ignore list (`.gitignore`)** | A file listing paths Git leaves out when you add files (it can still be overridden on purpose with `git add -f`). Ours keeps Firefox's source, build output, installers and secrets out of the repository. |
 | **Hook (Claude Code)** | A script Claude Code runs automatically at certain moments (session start, before a command, when finishing). Used to enforce rules. |
-| **Line endings (LF / CRLF)** | The invisible character(s) that end each line of text. Linux and macOS use LF; Windows traditionally uses CRLF. We store everything as LF, set in `.gitattributes` (Git's per-file-type rules), because a patch whose line endings were changed can fail to apply. |
+| **Line endings (LF / CRLF)** | The invisible character(s) that end each line of text. Linux and macOS use LF; Windows traditionally uses CRLF. `.gitattributes` (Git's per-file-type rules) stores our text files as LF and keeps patch files exactly as written, because a patch whose line endings were changed can fail to apply. |
 | **LTO** | Link-Time Optimization: a compiler technique that optimizes across the whole program. Mozilla's release builds use it. |
 | **mach** | Mozilla's build command: `./mach build`, `./mach run`, `./mach package`, `./mach test`. |
 | **MAR** | Mozilla ARchive: the signed update file format Firefox's updater installs. |
