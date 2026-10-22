@@ -3,13 +3,32 @@
 /engine/
 /obj-*/
 /dist/
-*.source.tar.xz
+# Firefox source unpacked in the wrong place (it belongs in work/).
+/firefox-*/
+
+# Archives, installers and update files, including the Firefox source tarball.
+*.tar.xz
+*.tar.bz2
+*.tar.zst
 *.tar.gz
 *.zip
+*.7z
 *.dmg
+*.pkg
 *.exe
 *.msi
+*.msix
+*.deb
+*.rpm
 *.AppImage
+*.mar
+
+# Windows debug symbols (often over 1 GB each).
+*.pdb
+
+# Leftovers from a patch that did not apply cleanly.
+*.rej
+*.orig
 
 # Packed context for Gemini (regenerated on demand)
 /.context/
@@ -27,6 +46,7 @@ __pycache__/
 .venv/
 .DS_Store
 Thumbs.db
+desktop.ini
 .idea/
 .vscode/
 
