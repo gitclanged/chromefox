@@ -7,7 +7,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | --- | --- |
 | **ADR** | Architecture Decision Record. A short document recording a hard-to-reverse decision, the options considered, and why. Lives in `docs/adr/`. |
 | **AMO** | addons.mozilla.org, Mozilla's extension store. Extensions there are signed by Mozilla. |
-| **App mode** | Starting Chrome or Edge as a plain window with no tabs or address bar (`--app=<url>`). One way the compat-tab companion could open a page. |
+| **App mode** | Starting a Chromium-family browser (Chrome, Edge, Chromium, Brave) as a plain window with no tabs or address bar (`--app=<url>`). One way the compat-tab companion could open a page. |
 | **Artifact build** | A Firefox build that downloads the already-compiled engine from Mozilla and only builds the frontend. Minutes instead of hours; only usable when we haven't changed C++/Rust code. |
 | **Autoconfig** | A Firefox mechanism for setting and locking prefs from a file in the install folder. An alternative to policies for prefs that have no policy. |
 | **Bisect** | Finding which commit introduced a bug by testing commits in a binary-search order. Only works well when commits are small and each one builds. |

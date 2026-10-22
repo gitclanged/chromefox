@@ -6,7 +6,7 @@
   `chromefox.compatTab.companion.enabled`, `chromefox.compatTab.embedded.enabled` (stage 3, default false)
 - **Patch series:** `patches/0500-compat-tab/` (UI hooks only; logic lives in `compat-tab/`)
 - **Decision record:** [ADR-0004](../adr/0004-compat-tab-staged.md)
-- **Open proposals:** IDEA-01 – IDEA-04 in [OPEN-QUESTIONS.md](../OPEN-QUESTIONS.md) (not yet approved)
+- **Open proposals:** IDEA-01 – IDEA-05 in [OPEN-QUESTIONS.md](../OPEN-QUESTIONS.md) (not yet approved)
 
 > Naming: in Firefox's code "chrome" means the browser UI. This feature is **compat tab**
 > everywhere in code, prefs and files. Never name anything here "chrome".
