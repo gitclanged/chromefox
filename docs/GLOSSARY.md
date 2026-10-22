@@ -7,6 +7,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | --- | --- |
 | **ADR** | Architecture Decision Record. A short document recording a hard-to-reverse decision, the options considered, and why. Lives in `docs/adr/`. |
 | **AMO** | addons.mozilla.org, Mozilla's extension store. Extensions there are signed by Mozilla. |
+| **App mode** | Starting a Chromium-family browser (Chrome, Edge, Chromium, Brave) as a plain window with no tabs or address bar (`--app=<url>`). One way the compat-tab companion could open a page. |
 | **Artifact build** | A Firefox build that downloads the already-compiled engine from Mozilla and only builds the frontend. Minutes instead of hours; only usable when we haven't changed C++/Rust code. |
 | **Autoconfig** | A Firefox mechanism for setting and locking prefs from a file in the install folder. An alternative to policies for prefs that have no policy. |
 | **Bisect** | Finding which commit introduced a bug by testing commits in a binary-search order. Only works well when commits are small and each one builds. |
@@ -20,6 +21,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **Compat tab** | Our feature for sites that only work in a Chromium-engine browser. Built in stages; see `docs/features/compat-tab.md`. |
 | **Content process** | A separate program Firefox runs web pages in, so one site can't easily read another's data or crash the browser. |
 | **Conventional Commits** | A commit message format: `type(scope): summary`, e.g. `fix(prefs): …`. |
+| **declarativeNetRequest (DNR)** | An extension API where the extension gives the browser a list of rules (e.g. "change this header for these sites") and the browser applies them itself, without running extension code for each request. |
 | **Distribution folder** | `distribution/` inside the installed browser; Firefox reads `policies.json` and bundled extensions from it. |
 | **Enterprise policy** | An officially supported rule (in `policies.json`) that configures and can lock Firefox settings. Our first choice for changes. |
 | **ESR** | Extended Support Release: a Firefox version that gets security fixes for over a year without new features. We build on ESR 153. |
