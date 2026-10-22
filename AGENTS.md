@@ -111,3 +111,28 @@ The owner wants to understand and eventually architect this project. While worki
 Gemini (large context) is the project's auditor, not a second author. It reads the whole repo
 and writes findings to `docs/reviews/`. Agents act on those findings through normal tasks and
 pull requests. See `docs/AI-TEAM.md`.
+
+## 9. Better ideas are welcome
+
+The owner wants agents to think, not only to follow the plan: `docs/ROADMAP.md`, the specs
+and even accepted ADRs are the best current thinking, not scripture. When you see a better
+option — simpler, cheaper to maintain across Firefox updates, faster, safer, or a smarter
+reuse of something Firefox, the operating system or an existing tool already provides —
+surface it, even if nobody asked. Surface it; don't act on it.
+
+- **Propose, don't impose.** Explain it in plain language: what it would replace, why it is
+  better, the trade-offs and risks, what you verified versus what you assume (with sources),
+  and your recommendation. A claimed speed or memory benefit is a hypothesis until measured
+  (rule 2.6).
+- **Write it down, in the right place.** Gemini puts ideas in the "Better options" section of
+  its report. Claude records ideas as rows under "Proposals" in `docs/OPEN-QUESTIONS.md`, in
+  their own docs pull request or at `/end-session`, never inside an unrelated task's pull
+  request. If an idea would change an accepted ADR, also draft a new ADR with status
+  `Proposed`; the old ADR stays unchanged until the owner accepts the new one. Ideas left in
+  a chat are lost.
+- **The current plan stands until the owner decides.** Don't implement a proposal early, and
+  don't let it widen the task you are on.
+- **Hard rules still apply.** A good idea is never a reason to break section 2; propose
+  changing the rule instead.
+- **Prefer ideas that shrink what we maintain.** Reusing an upstream mechanism or deleting a
+  patch beats adding clever code that must be rebased on every Firefox update.

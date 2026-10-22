@@ -12,3 +12,7 @@ Every report ends with a triage table filled in by Claude and approved by the ow
 | 1 | blocker / should-fix / consider | fix / defer / won't fix | P?-?? or #issue or "because…" |
 
 A report with no triage table is not finished.
+
+Ideas from a report's "Better options" section are triaged too: the ones worth deciding
+become rows under "Proposals" in [OPEN-QUESTIONS.md](../OPEN-QUESTIONS.md) (AGENTS.md
+section 9).
