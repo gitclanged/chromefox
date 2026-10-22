@@ -10,3 +10,4 @@ version they are built on plus our own counter, e.g. `153.4.0-cfx.1`
 ### Added
 - Project scaffolding: agent instructions, architecture docs, ADRs 0001–0007, learning
   curriculum, runbooks, repository checks, Claude Code and Gemini configuration.
+- `LICENSE` with the Mozilla Public License 2.0 text.
