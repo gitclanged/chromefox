@@ -33,7 +33,10 @@ LANG_BY_SUFFIX = {
 
 def git(root: Path, *args: str) -> str | None:
     try:
-        out = subprocess.run(["git", *args], cwd=root, capture_output=True, text=True, check=True)
+        # Git prints UTF-8; without an explicit encoding, Windows Python decodes with the
+        # legacy code page and crashes on some characters (e.g. in branch names).
+        out = subprocess.run(["git", *args], cwd=root, capture_output=True,
+                             encoding="utf-8", errors="replace", check=True)
         return out.stdout
     except (OSError, subprocess.CalledProcessError):
         return None
@@ -89,6 +92,9 @@ def tree(paths: list[str]) -> str:
 
 
 def main() -> int:
+    # Captured output on Windows defaults to the legacy code page; always write UTF-8.
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0],
                                      formatter_class=argparse.RawDescriptionHelpFormatter,
                                      epilog="\n".join(__doc__.splitlines()[2:]))

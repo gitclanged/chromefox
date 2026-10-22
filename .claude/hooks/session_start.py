@@ -16,13 +16,19 @@ from pathlib import Path
 
 def git(cwd: Path, *args: str) -> str | None:
     try:
-        out = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, timeout=10)
+        # Git prints UTF-8; without an explicit encoding, Windows Python decodes with the
+        # legacy code page and crashes on some characters (e.g. in commit messages).
+        out = subprocess.run(["git", *args], cwd=cwd, capture_output=True,
+                             encoding="utf-8", errors="replace", timeout=10)
     except (OSError, subprocess.TimeoutExpired):
         return None
     return out.stdout.strip() if out.returncode == 0 else None
 
 
 def main() -> int:
+    # Captured output on Windows defaults to the legacy code page, which can't print every
+    # character a commit message may contain; Claude Code reads hook output as UTF-8.
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
         payload = json.load(sys.stdin)
     except (json.JSONDecodeError, ValueError):

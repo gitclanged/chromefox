@@ -13,6 +13,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **Blink** | The page-rendering engine inside Chrome, Edge and other Chromium browsers. |
 | **Branch** | A separate line of work in git. We do each task on its own branch and merge it into `main` by pull request. |
 | **CEF** | Chromium Embedded Framework: Chromium packaged so other apps can show web pages with it. Large and frequently updated. |
+| **Character encoding** | The rule for turning letters into bytes. UTF-8 covers every language and emoji; older Windows code pages (like cp1252) cover only a few, so our scripts always read and write UTF-8 explicitly. |
 | **chrome** (Mozilla meaning) | The browser's own interface — tabs, menus, toolbars — as opposed to web content. `chrome://` URLs are browser UI pages. Not related to Google Chrome; that's why our feature is called "compat tab". |
 | **Chromium** | The open-source project behind Chrome, Edge, Brave, Opera, Vivaldi. |
 | **CI** | Continuous Integration: automatic checks that run on every push or pull request. Ours runs in GitHub Actions. |
@@ -23,6 +24,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **Distribution folder** | `distribution/` inside the installed browser; Firefox reads `policies.json` and bundled extensions from it. |
 | **Enterprise policy** | An officially supported rule (in `policies.json`) that configures and can lock Firefox settings. Our first choice for changes. |
 | **ESR** | Extended Support Release: a Firefox version that gets security fixes for over a year without new features. We build on ESR 153. |
+| **Exit code** | The number a program returns when it finishes: 0 means success, anything else a problem. Our checks and CI rely on it; a Claude Code hook that exits with 2 blocks the action. |
 | **Extension (WebExtension)** | An add-on built with the standard browser-extension API, like uBlock Origin. |
 | **Frontend** | The browser's interface code (JavaScript, HTML, CSS). |
 | **Gecko** | Firefox's engine: turns HTML/CSS/JavaScript into what you see. |

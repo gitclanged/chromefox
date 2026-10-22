@@ -25,7 +25,10 @@ PROTECTED = {"main", "master"}
 
 def git(cwd: Path, *args: str) -> str | None:
     try:
-        out = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, timeout=10)
+        # Git prints UTF-8; without an explicit encoding, Windows Python decodes with the
+        # legacy code page and crashes on some branch names, which would let a push through.
+        out = subprocess.run(["git", *args], cwd=cwd, capture_output=True,
+                             encoding="utf-8", errors="replace", timeout=10)
     except (OSError, subprocess.TimeoutExpired):
         return None
     return out.stdout.strip() if out.returncode == 0 else None

@@ -33,8 +33,10 @@ def main() -> int:
         if not script.is_file():
             continue
         try:
+            # The checks print UTF-8 (see their main()); decode it as such on every OS.
             result = subprocess.run([sys.executable, str(script), "--root", str(root)],
-                                    capture_output=True, text=True, timeout=60)
+                                    capture_output=True, encoding="utf-8", errors="replace",
+                                    timeout=60)
         except (OSError, subprocess.TimeoutExpired) as exc:
             failures.append(f"{rel} could not run: {exc}")
             continue

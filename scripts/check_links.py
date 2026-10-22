@@ -91,6 +91,9 @@ def check(root: Path) -> tuple[list[str], int]:
 
 
 def main() -> int:
+    # Captured output on Windows defaults to the legacy code page, which can't print every
+    # character a link may contain; always write UTF-8 (the stop hook decodes it as such).
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent.parent,
                         help="repository root (default: parent of scripts/)")
