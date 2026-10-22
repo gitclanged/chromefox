@@ -43,9 +43,12 @@ def git(root: Path, *args: str) -> str | None:
 
 
 def candidate_files(root: Path) -> list[Path]:
-    listed = git(root, "ls-files", "--cached", "--others", "--exclude-standard")
+    # quotePath=false and -z: otherwise git prints non-ASCII paths as quoted octal escapes,
+    # which match no real file, and those files silently drop out of the pack.
+    listed = git(root, "-c", "core.quotePath=false", "ls-files", "-z",
+                 "--cached", "--others", "--exclude-standard")
     if listed is not None:
-        files = [root / line for line in listed.splitlines() if line.strip()]
+        files = [root / name for name in listed.split("\0") if name]
     else:
         files = [p for p in root.rglob("*") if p.is_file()]
     result = []

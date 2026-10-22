@@ -26,8 +26,10 @@ def git(cwd: Path, *args: str) -> str | None:
 
 
 def main() -> int:
-    # Captured output on Windows defaults to the legacy code page, which can't print every
-    # character a commit message may contain; Claude Code reads hook output as UTF-8.
+    # Claude Code exchanges hook input and output as UTF-8. On Windows both default to the
+    # legacy code page, which garbles non-English folder names and can't print every
+    # character a commit message may contain.
+    sys.stdin.reconfigure(encoding="utf-8", errors="replace")
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
         payload = json.load(sys.stdin)

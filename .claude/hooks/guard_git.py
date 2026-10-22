@@ -40,6 +40,10 @@ def block(reason: str) -> int:
 
 
 def main() -> int:
+    # Claude Code sends the payload as UTF-8 JSON. Decoded with the Windows legacy code page,
+    # a non-English folder name in "cwd" is garbled, git can't run there, and the guard
+    # would wrongly allow commits and pushes on main.
+    sys.stdin.reconfigure(encoding="utf-8", errors="replace")
     try:
         payload = json.load(sys.stdin)
     except (json.JSONDecodeError, ValueError):
