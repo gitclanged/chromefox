@@ -1,0 +1,20 @@
+# The exact Firefox release Chromefox is built on.
+# Change this file only through the /upstream-update skill (docs/runbooks/upstream-update.md).
+
+product = "firefox"
+channel = "esr"
+major = 153
+
+# Exact dot release, e.g. "153.4.0esr". Set in task P1-01 to the newest 153 ESR release.
+version = ""
+
+# SHA-256 of the source tarball, copied from Mozilla's signed SHA256SUMS file for this
+# version (P1-02 also verifies the GPG signature on that file).
+sha256 = ""
+
+# Mozilla's archive layout for source tarballs.
+source_url_template = "https://archive.mozilla.org/pub/firefox/releases/{version}/source/firefox-{version}.source.tar.xz"
+checksums_url_template = "https://archive.mozilla.org/pub/firefox/releases/{version}/SHA256SUMS"
+
+# Date this pin was last changed (YYYY-MM-DD).
+pinned_on = ""

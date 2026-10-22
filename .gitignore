@@ -1,0 +1,38 @@
+# Firefox source and build output never go in this repository.
+/work/
+/engine/
+/obj-*/
+/dist/
+*.source.tar.xz
+*.tar.gz
+*.zip
+*.dmg
+*.exe
+*.msi
+*.AppImage
+
+# Packed context for Gemini (regenerated on demand)
+/.context/
+
+# Raw benchmark dumps (summaries go in perf/results/)
+/perf/raw/
+
+# Personal, machine-specific Claude Code files
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Python and editor noise
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Never commit secrets
+.env
+*.pem
+*.p12
+*.pfx
+*.key

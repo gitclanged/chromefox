@@ -1,0 +1,61 @@
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    name: Repository consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Patch registry matches patches/
+        run: python3 scripts/check_registry.py
+
+      - name: Internal Markdown links resolve
+        run: python3 scripts/check_links.py
+
+      - name: JSON files are valid
+        run: |
+          python3 - <<'EOF'
+          import json, pathlib, sys
+          bad = []
+          for p in pathlib.Path(".").rglob("*.json"):
+              if ".git" in p.parts:
+                  continue
+              try:
+                  json.loads(p.read_text(encoding="utf-8"))
+              except Exception as exc:
+                  bad.append(f"{p}: {exc}")
+          print("\n".join(bad) if bad else "All JSON files parse.")
+          sys.exit(1 if bad else 0)
+          EOF
+
+      - name: Hook scripts compile
+        run: python3 -m py_compile .claude/hooks/*.py scripts/*.py
+
+  pr-title:
+    name: Conventional PR title
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check title format
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          python3 - <<'EOF'
+          import os, re, sys
+          title = os.environ["TITLE"]
+          pattern = r"^(feat|fix|perf|docs|refactor|test|build|ci|chore|revert)(\([a-z0-9-]+\))?!?: \S.{0,70}$"
+          if re.match(pattern, title):
+              print(f"OK: {title}")
+              sys.exit(0)
+          print(f"PR title must look like 'type(scope): summary' (max ~72 chars). Got: {title}")
+          sys.exit(1)
+          EOF
