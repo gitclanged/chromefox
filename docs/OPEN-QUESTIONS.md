@@ -14,9 +14,12 @@ update or add an ADR.
 | 6 | **Auto-update approach** | Notify-only + package managers until signing exists | Security vs infrastructure cost | P6-03 |
 | 7 | **Sync and accounts:** keep Firefox Sync (Mozilla account) or remove | Keep, off by default | Users expect sync; it's Mozilla infrastructure | Phase 2 |
 | 8 | **Default search engine** | Keep Firefox's default list, no deals | Revenue vs neutrality | Phase 2 |
-| 9 | **Public or private repository** | Private until Phase 6 | MPL requires publishing source when you distribute binaries | Before first public binary |
 | 10 | **Budget ceiling per month** (AI usage, machines, certificates) | None set | Prevents surprise costs | P0-02 |
 
 ## Decided
 
-_Move rows here with the date and the decision._
+Move rows here with the date and the decision.
+
+| # | Question | Decision | Date | Why |
+| --- | --- | --- | --- | --- |
+| 9 | **Public or private repository** (default was "private until Phase 6") | **Public now** | 2026-10-22 | GitHub Free offers branch protection only on public repositories; the owner chose public over paying for GitHub Pro or going without protection. Accepted consequence: the codename and all docs are visible early, so trademark research (ADR-0005) is more urgent. |
