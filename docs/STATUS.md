@@ -3,32 +3,53 @@
 <!-- Keep this file under 60 lines. It is loaded into every Claude and Gemini session.
      Update it at the end of every session (the /end-session skill does this). -->
 
-**Last updated:** 2026-10-19 · **Phase:** 0 — Foundations · **Upstream pin:** Firefox ESR 153 (dot release not yet pinned)
+**Last updated:** 2026-10-22 · **Phase:** 0 — Foundations · **Upstream pin:** Firefox ESR 153 (dot release not yet pinned)
 
 ## Where we are
 
-- Repository scaffolding exists: agent rules, architecture, roadmap, ADRs 0001–0007,
-  learning curriculum, runbooks, repository checks, Claude Code and Gemini configuration.
-- Nothing is built yet. No patches exist. `prefs/policies.json` is a draft that has not been
-  tested in a real browser.
-- The repository has not been pushed to GitHub yet.
+- The repository is on GitHub: https://github.com/gitclanged/chromefox. It is **public**
+  since 2026-10-22 (owner decision, `docs/OPEN-QUESTIONS.md` "Decided") so that branch
+  protection works on GitHub Free. `main` holds the baseline "initial project scaffolding".
+- CI ("Repository consistency") passed on `main`.
+- Session 0 pull requests waiting for the owner: #1 git hygiene · #2 Windows text-encoding
+  fixes for hooks and scripts (merge #6 right after it) · #3 AGENTS.md section 9 "Better
+  ideas are welcome" · #4 compat-tab proposals (stacked on #3) · #5 MPL-2.0 LICENSE ·
+  #6 this status update and the session devlog.
+- Nothing is built yet. No patches exist. `prefs/policies.json` has not been tested.
 
 ## Next up
 
-1. **P0-01** — Initialize git, create the GitHub repo, push, enable branch protection,
-   add the MPL-2.0 LICENSE via a pull request. (Owner + Claude, see `docs/00-START-HERE.md`.)
-2. **P0-02** — Owner answers the top three items in `docs/OPEN-QUESTIONS.md`
-   (first platform, uBlock install mode, translations policy).
-3. **P0-03** — Test `prefs/policies.json` on a stock Firefox ESR 153 install; record results
-   in `docs/features/no-ai.md` and `docs/features/ublock-origin.md`.
+1. **P0-01 (finish)** — Owner turns on branch protection for `main` (ask Claude for the
+   walkthrough), then reviews and merges #1–#6. Claude updates #4 after #3 merges.
+2. **P0-02** — Owner answers `docs/OPEN-QUESTIONS.md` rows 1–3 and 10 (first platform,
+   uBlock install mode, translations, budget).
+3. **P0-03** — Test `prefs/policies.json` on a stock Firefox ESR 153 install.
+4. **P0-05** — First Gemini audit with the context pack (`/gemini-handoff audit`).
+5. **P0-06** — Owner works through `docs/learn/` lessons 01–04 (ongoing, weekly).
+
+## Follow-up tasks found in session 0
+
+- `.claude/hooks/guard_git.py` matches command *text*: `git -C <dir> commit` gets past it;
+  `git switch -c` anywhere in a command disables the commit check, and `--force-with-lease`
+  later in the same push disables the force check; commit messages or test data that quote
+  git commands get blocked. Branch protection is the real backstop.
+- `scripts/pack_context.py` packs every file, ignoring `.gitignore`, when git is unavailable
+  (tested: a `.env` file was included). It should refuse instead.
+- Patch line endings: `/new-patch` should turn off `core.autocrlf` in its throwaway repo, and
+  a check should flag unexpected CR characters in patches (review of #1).
 
 ## Blocked / waiting on owner
 
-- Public name (ADR-0005) — not needed until Phase 6, but trademark research takes time.
+- Branch protection on `main`: only the owner can turn it on in GitHub's settings.
+- Decisions: OPEN-QUESTIONS rows 1–3, 10 and 11 (Gemini's role); proposals IDEA-01 –
+  IDEA-05 (once #3 and #4 are merged).
+- Public name (ADR-0005): the codename is now publicly visible, so trademark research is
+  more urgent than planned.
 
 ## Known risks right now
 
-- None of the policy keys in `prefs/policies.json` have been tested together on ESR 153 yet.
+- `main` is unprotected until branch protection is on.
+- None of the policy keys in `prefs/policies.json` have been tested on ESR 153 yet.
 
 ## Last session
 

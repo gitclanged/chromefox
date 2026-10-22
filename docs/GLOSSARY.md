@@ -37,6 +37,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **omni.ja** | A zip file in the Firefox install that holds most of the frontend code. |
 | **Parent process** | The main Firefox program that runs the UI and coordinates content processes. |
 | **Patch** | A file describing line-by-line changes to source code. Our changes to Firefox are patches in `patches/`. |
+| **PATH** | The list of folders a terminal searches when you type a program's name. A newly installed program works only in terminals opened after it was added to that list. |
 | **PGO** | Profile-Guided Optimization: build once, run typical workloads to record what code is hot, rebuild optimized for that. Mozilla's release builds use it. |
 | **Pref** | A Firefox preference (see `about:config`). Has a default value that can be overridden. |
 | **Profile** | The folder holding one user's bookmarks, history, settings and extensions. |
@@ -46,6 +47,7 @@ Plain-language definitions. Agents add a term here the first time it comes up in
 | **Searchfox** | Mozilla's searchable website for the Firefox source code: searchfox.org. Agents use it to confirm that a file, pref or function really exists. |
 | **Skill (Claude Code)** | A saved procedure Claude follows when you type `/name`. Ours are in `.claude/skills/`. |
 | **SpiderMonkey** | Firefox's JavaScript engine. |
+| **Stacked pull request** | A pull request built on top of another one that isn't merged yet. Merge the bottom one first; the top one is then updated to sit on `main`. |
 | **Subagent (Claude Code)** | A helper Claude starts in a fresh context for a focused job, e.g. our `reviewer`. |
 | **Tag** | A permanent name for one commit in git, used for releases (`v153.4.0-cfx.1`). |
 | **Telemetry** | Usage data a program sends home. Disabled in this project. |

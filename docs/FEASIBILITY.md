@@ -135,7 +135,7 @@ Mostly yes, with these limits in mind:
 | Item | Needed when | Approximate cost |
 | --- | --- | --- |
 | Build machine: 8+ cores, 16–32 GB RAM, 100+ GB free SSD | Phase 1 | Use what you have if it meets this; otherwise a desktop or a cloud VM billed by the hour |
-| GitHub (private repo, Actions for checks) | Phase 0 | Free tier is enough for checks; full Firefox builds need bigger runners or your machine |
+| GitHub (public repo, Actions for checks) | Phase 0 | Free: public repositories get branch protection and Actions for checks (a private one would need GitHub Pro for branch protection; see OPEN-QUESTIONS "Decided" #9); full Firefox builds need bigger runners or your machine |
 | Claude subscription or API usage | Throughout | Depends on plan |
 | Gemini 4 Argon | Weekly audits | $2 / $10 per million input / output tokens until Nov 30, 2026 (introductory), then higher. A full-repo audit is well under 1M tokens early on |
 | Windows code-signing certificate | Before public Windows release | Hundreds of USD per year; without it users see SmartScreen warnings |
