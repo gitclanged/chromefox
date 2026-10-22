@@ -49,4 +49,4 @@ This "patch-set" approach is how LibreWolf and Zen stay maintainable; see
 Firefox source code is under the Mozilla Public License 2.0 (MPL-2.0). Our patches to
 MPL files are MPL-2.0 as well. uBlock Origin is GPL-3.0 and is distributed as a separate,
 unmodified extension. See [docs/FEASIBILITY.md](docs/FEASIBILITY.md#legal-and-licensing).
-Add a `LICENSE` file (MPL-2.0) when the GitHub repository is created.
+This repository is licensed under MPL-2.0; the full text is in [LICENSE](LICENSE).
