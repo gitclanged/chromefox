@@ -19,6 +19,9 @@ CHECKS = ["scripts/check_registry.py", "scripts/check_links.py"]
 
 
 def main() -> int:
+    # Claude Code sends the payload as UTF-8 JSON; Windows would otherwise decode it with
+    # the legacy code page and garble non-English folder names.
+    sys.stdin.reconfigure(encoding="utf-8", errors="replace")
     try:
         payload = json.load(sys.stdin)
     except (json.JSONDecodeError, ValueError):
@@ -33,8 +36,10 @@ def main() -> int:
         if not script.is_file():
             continue
         try:
+            # The checks print UTF-8 (see their main()); decode it as such on every OS.
             result = subprocess.run([sys.executable, str(script), "--root", str(root)],
-                                    capture_output=True, text=True, timeout=60)
+                                    capture_output=True, encoding="utf-8", errors="replace",
+                                    timeout=60)
         except (OSError, subprocess.TimeoutExpired) as exc:
             failures.append(f"{rel} could not run: {exc}")
             continue
