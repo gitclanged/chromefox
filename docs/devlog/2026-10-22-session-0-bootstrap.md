@@ -48,7 +48,9 @@ approval of those changes.
 - **The checks catch real problems.** `check_registry.py` and `check_links.py` pass in Git
   Bash and PowerShell, and caught all eight errors planted in a deliberately broken copy.
 - **The guard works live.** It blocked a real `git commit` on `main` inside Claude Code.
-  The 8-case simulated test passes.
+  The 8-case simulated test passes. It has known gaps, though: it reads command *text*, so
+  some phrasings get past it (listed under "Follow-up tasks" in `STATUS.md` as of this
+  session). That is why GitHub branch protection matters.
 - **Every Windows text failure was reproduced, then fixed.** Each was shown to fail before
   the fix and pass after it.
 - **CI passed on GitHub** for `main`.
@@ -68,7 +70,7 @@ Exit code, PATH, Stacked pull request. Compat-tab terms: App mode, declarativeNe
 ## Next
 
 1. You turn on branch protection for `main`. Ask Claude for the walkthrough.
-2. You review and merge #1–#6; merge #2 and #6 together.
+2. You review and merge #1–#6, merging #6 right after #2.
 3. Claude then updates #4 to sit on `main` instead of #3.
 4. Then P0-02 (your answers to `OPEN-QUESTIONS.md` rows 1–3 and 10) and P0-03 (testing the
    policies on stock Firefox ESR 153).
@@ -76,5 +78,5 @@ Exit code, PATH, Stacked pull request. Compat-tab terms: App mode, declarativeNe
 ## Questions for the owner
 
 - OPEN-QUESTIONS rows 1–3 and 10, and the proposals IDEA-01 – IDEA-05.
-- Gemini's role: the docs call it the "auditor"; you call it your co-project manager.
-  Should `docs/AI-TEAM.md` change?
+- OPEN-QUESTIONS row 11, Gemini's role: the docs call it the "auditor"; you call it your
+  co-project manager. Should `docs/AI-TEAM.md` change?

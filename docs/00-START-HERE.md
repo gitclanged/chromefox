@@ -33,8 +33,9 @@ Then open a terminal in this folder, start Claude Code, and paste:
 This is a new project. Please:
 1. Run `git init -b main`, add everything, and make the first commit
    ("chore: initial project scaffolding").
-2. Create a private GitHub repository named chromefox with `gh repo create`
-   and push main to it.
+2. Create a public GitHub repository named chromefox with `gh repo create`
+   and push main to it. (Public, because GitHub Free can't protect main on a
+   private repository; see OPEN-QUESTIONS "Decided" #9.)
 3. Walk me through turning on branch protection for main in the GitHub website
    (require a pull request and the "Repository consistency" and "Conventional PR title" checks to pass). Explain each setting.
 4. Add an MPL-2.0 LICENSE file on a branch and open a pull request for it, so I can
