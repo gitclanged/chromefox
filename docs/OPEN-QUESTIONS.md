@@ -20,8 +20,8 @@ update or add an ADR.
 ## Proposals (better options)
 
 Ideas from Claude, Gemini or you that would change the plan (AGENTS.md section 9). The current
-plan stands until you decide. Status is `open`, `accepted → <task or ADR>`, or
-`rejected (<why>)`.
+plan stands until you decide. When you decide, move the row to "Decided" below with the date
+and the outcome: accepted (with the task or ADR it became) or rejected (with the reason).
 
 | ID | Proposal | Instead of | Why it might be better | Risks / not yet verified | Raised | Status |
 | --- | --- | --- | --- | --- | --- | --- |

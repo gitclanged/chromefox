@@ -63,7 +63,8 @@ estimated token count and warns above 800k. Then either:
 
 Save the answer as `docs/reviews/YYYY-MM-DD-<topic>.md` (Claude can do this for you with
 `/gemini-handoff save`). Then ask Claude to triage it: each finding becomes a task in
-`STATUS.md`, an issue, or a written "won't fix, because…".
+`STATUS.md`, an issue, or a written "won't fix, because…"; each "Better options" idea worth
+deciding becomes a row under "Proposals" in `OPEN-QUESTIONS.md`.
 
 ### Prompt 1 — weekly audit
 

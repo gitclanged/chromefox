@@ -26,6 +26,8 @@ Roles and prompts are defined in `docs/AI-TEAM.md`. Gemini reviews; Claude imple
 2. Verify each finding against the repository yourself: mark it **confirmed**, **not
    reproducible**, or **disagree (with reason)**. Gemini can be wrong; so can you — cite files.
 3. Add the triage table (see `docs/reviews/README.md`): fix / defer / won't fix, with roadmap
-   task or reason. Add accepted items to `docs/STATUS.md` or `docs/ROADMAP.md`.
+   task or reason. Add accepted items to `docs/STATUS.md` or `docs/ROADMAP.md`. Ideas from the
+   report's "Better options" section that are worth deciding become rows under "Proposals" in
+   `docs/OPEN-QUESTIONS.md` (AGENTS.md section 9).
 4. Explain the top findings to the owner in plain language and ask them to approve the triage.
    Commit and open a pull request.
