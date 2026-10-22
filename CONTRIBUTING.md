@@ -41,3 +41,8 @@ switching the user agent fixes it. These reports drive the compat-tab rules list
 ## Security issues
 
 Do not open a public issue. See [SECURITY.md](SECURITY.md).
+
+## License
+
+Contributions are accepted under the Mozilla Public License 2.0 (see [LICENSE](LICENSE)),
+the same license as Firefox.
